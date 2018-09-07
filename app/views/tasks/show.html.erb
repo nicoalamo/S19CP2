@@ -7,7 +7,7 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= @task.photo %>
+  <%=  %>
 </p>
 
 <p>
@@ -15,5 +15,30 @@
   <%= @task.description %>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="<%= @task.photo %>" alt="<%= @task.name %>">
+  <div class="card-body">
+    <h5 class="card-title"> <%= @task.name %></h5>
+    <p class="card-text"><%= @task.description %></p>
+    <td><%= link_to 'Editar', edit_task_path(@task), class: "btn btn-warning text-white" %></td>
+    <td><%= link_to 'Back', tasks_path, class: "btn btn-danger text-white"  %></td>
+  </div>
+</div>
+
+
+
+<% ranking = 0 %>
+
+<div class="row">
+  <% @users.limit(5).each do |user| %>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="<%= user.photo %>" alt="<%= user.name %>">
+          <div class="card-body">
+            <h5 class="card-title"> <%= user.name %></h5>
+            <p class="card-text">Ranking: <%= ranking += 1 %></p>
+          </div>
+        </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,7 @@
+<h1>Lista de Tareas Realizadads</h1>
+
+
+<br>
+<% @donetasks.each do |donetask| %>
+  <p> <%= donetask.id %> | <%= donetask.user.name %> | <%= donetask.task.name %> </p>
+<% end  %>
