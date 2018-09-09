@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Task.destroy_all
+User.destroy_all
+
 9.times do |i|
   user = User.new(name: "Juanito #{i} ", email: "juanito#{i}@gmail.com", password: '123456', photo: 'http://as00.epimg.net/img/comunes/fotos/fichas/deportistas/p/ped/large/17184.png')
   user.save
