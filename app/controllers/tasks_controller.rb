@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action :completed_tasks
   # GET /tasks
   # GET /tasks.json
   def index
@@ -72,4 +72,11 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:name, :photo, :description)
     end
+
+    def completed_tasks
+      @tareas_totales = Task.all.count
+      @user = current_user
+      @tareas_realizadas = current_user.donetasks.count
+    end
+
 end

@@ -42,3 +42,29 @@
     </div>
   <% end %>
 </div>
+
+<% new_ranking = 0 %>
+
+<div class="row">
+  <div class="col-md-4">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Ranking</th>
+          <th scope="col">Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= new_ranking += 1 %></td>
+            <td><%= user.name %></td>
+          </tr>
+        <% end %>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
